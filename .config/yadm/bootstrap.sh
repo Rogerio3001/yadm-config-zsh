@@ -22,15 +22,10 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
 
-# Instalar syntax highlighting
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-fi
-
 # Atualizar o .zshrc com os plugins
 if ! grep -q "zsh-autosuggestions" "$HOME/.zshrc"; then
   echo "Adicionando plugins ao .zshrc..."
-  sed -i '/^plugins=/ s/(/(zsh-autosuggestions zsh-syntax-highlighting /' "$HOME/.zshrc"
+  sed -i '/^plugins=/ s/(/(zsh-autosuggestions /' "$HOME/.zshrc"
 fi
 
 # Reiniciar o shell para aplicar as alterações
